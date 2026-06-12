@@ -43,6 +43,12 @@ CONSTRUCTOR
 	
 	String palabra = new String("PEDRO");
 	
+	Todas las clases, tienen un constructor por defecto.
+	Una función, que ya está hecha y que se llama igual que la clase.
+	
+	String() // para la clase String
+	Dni() //para la clase Dni 
+	
 
 STRING VS CHAR
 

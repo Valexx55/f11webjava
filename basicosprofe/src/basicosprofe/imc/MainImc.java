@@ -43,12 +43,40 @@ public class MainImc {
 			}
 			// INFORMAR
 			System.out.println("Su imc es " + imc_numerico + " " + imc_nominal);
-		} catch (Exception fallo) {
-			System.out.println("Introduce los decimales con comas");
-			//fallo.printStackTrace();//imprimos por pantalla el fallo
+		} catch (ArrayIndexOutOfBoundsException fallo) {
+			System.out.println("Introduce los decimales con comas Array");
+			fallo.printStackTrace();//imprimos por pantalla el fallo
+			//System.out.println( "FALLO = " +fallo.getMessage());
+		}  
+		catch (NullPointerException fallo) {
+			System.out.println("Introduce los decimales con comas Null");
+			fallo.printStackTrace();//imprimos por pantalla el fallo
+			//System.out.println( "FALLO = " +fallo.getMessage());
+		}  
+		catch (Throwable fallo) {
+			System.out.println("Introduce los decimales con comas Expceción");
+			fallo.printStackTrace();//imprimos por pantalla el fallo
 			//System.out.println( "FALLO = " +fallo.getMessage());
 		}  
 
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
