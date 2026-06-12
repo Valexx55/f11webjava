@@ -17,16 +17,7 @@ public class EjemploUno {
 	 */
 	public static void main(String[] args) {
 		System.out.println("MÓDULO WEB");
-		//TODO cálculo del IMC
-		//formula = peso kg / estatura al cuadrado m
-		// < 16 DESNUTRIDO
-		// >=16 Y <18 DELGADO
-		// >=18 Y <25 IDEAL
-		// >=25 Y < 31 SOBREPESO
-		// >31 OBESO
-		// pedir al usuaro su peso y su estatura
-		// e informale de su imc numérico y nominal
-		// 1.70 m 65 kg daría 22.49 IDEAL
+		
 		//Scanner scanner = 
 		String palabra = new String("HOLA");//String() es el constructor
 		System.out.println(palabra);
