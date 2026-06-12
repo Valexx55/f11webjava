@@ -18,12 +18,34 @@ public class MainDni {
 
 		
 		//Y CON ESA INFO, CONSTRUIMOS UN DNI
-		Dni dni = new Dni();
-		dni.numero = numdni;
-		dni.letra = letradni.charAt(0);
+		//Dni dni = new Dni();
+		Dni dni = new Dni(numdni, letradni.charAt(0));
+		Dni dni2 = new Dni(789, 'B');
+		//System.out.println("NUMERO DNI2 " + dni2.numero);
+		//dni.numero = numdni;
+		//dni.letra = letradni.charAt(0);
 		System.out.println("DNI = " + dni.numero + "-" +dni.letra);
+		System.out.println("DNI2 = " + dni2.numero + "-" +dni2.letra);
 		//DESPUÉS, VAMOS A COMPROBAR SI EL DNI ES CORRECTO
 		//SI LA LETRA SE CORRESPONDE CON EL NÚMERO
+		char letraCalculada = dni.calcularLetra();
+		System.out.println("Letra calculada = "+letraCalculada);
+		letraCalculada = dni2.calcularLetra();
+		System.out.println("Letra calculada = "+letraCalculada);
+		
+		 String saludo = "HOLA";
+		int longi= saludo.length();
+		System.out.println("longitud = " +longi);
 	}
 
 }
+
+
+
+
+
+
+
+
+
+

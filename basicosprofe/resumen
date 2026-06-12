@@ -67,6 +67,18 @@ TIPOS PRIMITIVOS
 	Son una excepción a las clases, para tipar datos sencillos.
 	
 	
+THIS
+
+	Palabra reservada del leguaje Java
+	que puede asumir 2 significados
+	
+		1) EN EL CONSTRUCTOR
+		
+			this es el nuevo objeto que estamos creando
+			
+		2) FUERA DEL CONSTRUCTOR
+		
+			
 	
 
 
