@@ -78,6 +78,13 @@ THIS
 			
 		2) FUERA DEL CONSTRUCTOR
 		
+			En otra función, this, es el objeto LLAMANTE
+			
+			por ejemplo
+			
+			String saludo = "HOLA";
+			saludo.length(); //dentro de length, this es saludo
+			
 			
 	
 
