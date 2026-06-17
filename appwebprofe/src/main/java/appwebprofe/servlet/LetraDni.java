@@ -29,14 +29,28 @@ public class LetraDni extends HttpServlet {
 		//LEER EL NÚMERO
 		String numeroDni = request.getParameter("numero");
 		//CALCULAR LA LETRA DE ESE NÚMERO
-		int numero = Integer.parseInt(numeroDni);
-		//creo el DNI
-		Dni dni = new Dni(numero);
-		//NOTA: el dni, ya se crea con su letra, que se calcula en el constrcutor
-		String mensaje_respuesta = "Su Dni con letra es "+dni.numero+"-"+dni.letra;
-		System.out.println(mensaje_respuesta);
-		//ESCRIBIR LA RESPUESTA
-		response.getWriter().write(mensaje_respuesta);
+		if (numeroDni!=null)
+		{
+			try {
+				int numero = Integer.parseInt(numeroDni);
+				//creo el DNI
+				Dni dni = new Dni(numero);
+				//NOTA: el dni, ya se crea con su letra, que se calcula en el constrcutor
+				String mensaje_respuesta = "Su Dni con letra es "+dni.numero+"-"+dni.letra;
+				System.out.println(mensaje_respuesta);
+				//ESCRIBIR LA RESPUESTA
+				response.getWriter().write(mensaje_respuesta);
+			} catch (Exception e) {
+				//HA FALLADO LA CONVERSIÓN DEL NÚMERO
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+				response.getWriter().write("El parámetro no es un número válido");
+			}
+			
+		} else {
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().write("Falta el parámetro número");
+		}
+		
 		
 	}
 
