@@ -10,6 +10,9 @@ documentos/
 gestoriaprofe/
 Servers/
 
+#Ejecutables java bytecodes
+*.class
+
 # Eclipse / STS dentro de proyectos
 .classpath
 .project
