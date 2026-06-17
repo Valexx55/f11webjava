@@ -44,7 +44,7 @@ public class HolaServlet extends HttpServlet {
 			
 		} else {
 			//tengo que devolver 400
-			response.setStatus(400);
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().append("Debes indicar parámetros nombre y edad");
 		}
 		
