@@ -86,7 +86,59 @@ THIS
 			saludo.length(); //dentro de length, this es saludo
 			
 			
+SUPER
 	
+		Con super() estamos llamando a la función del padre
+		Dentro del constructuro, super hace referencia al constrcutor
+		del padre.
+		
+		El padre de todos las clases es Object
+		
+		
+JAR
+
+	Jar es un archivo comprimido que agrupa ficheros .class
+	Es como un .zip de archivos Java
+	¿para qué sirve? para hacer proyectos y poder reutilizarlos
+	
+	Ejemplo
+	
+		1) Proyecto de documentosprofe
+		2) Exportación a Jar de documentosprofe
+		3) Creación de proyecto Gestoria
+		4) Importar jar documentosprofe a Gestoria	
+			
+		
+MAVEN
+
+	Es una palabra polisémica:
+	
+		- Por un lado, es un repositorio de jars (librerías Java)
+		- Por otro lado, es una forma de proyecto Java
+		- Un progrma cliente (embebido en STS) que permite la comunicación
+		  con un repositorio Maven		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

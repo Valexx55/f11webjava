@@ -5,6 +5,11 @@
 target/
 bin/
 
+#PROYECTOS excluidos
+documentos/
+gestoriaprofe/
+Servers/
+
 # Eclipse / STS dentro de proyectos
 .classpath
 .project
