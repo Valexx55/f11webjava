@@ -22,6 +22,8 @@ public class LetraDni extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    //https://www.google.com/search?q=mundial+2026
+    //https://www.google.com/search?q=mundial+2026&oq=MUNDIAL&gs_lcrp=EgRlZGdlKg0IARAAGIMBGLEDGIAEMgYIABBFGDkyDQgBEAAYgwEYsQMYgAQyEAgCEAAYgwEYsQMYgAQYigUyDQgDEAAYgwEYsQMYgAQyDQgEEAAYgwEYsQMYgAQyDQgFEAAYgwEYsQMYgAQyDQgGEAAYgwEYsQMYgAQyDQgHEAAYgwEYsQMYgAQyDQgIEAAYgwEYsQMYgAQyCAgJEOkHGPxV0gEIMzE1NWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -50,7 +52,7 @@ public class LetraDni extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("Falta el parámetro número");
 		}
-		
+		//http://localhost:8080/appwebprofe/LetraDni?numero=53130984
 		
 	}
 
