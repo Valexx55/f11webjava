@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import com.google.gson.Gson;
+
 /**
  * Servlet implementation class CaculoIMC
  */
@@ -75,11 +77,15 @@ public class CalculoIMC extends HttpServlet {
 				response.setContentType("application/json");
 				ImcRespuestaNueva imcRespuestaNueva = new ImcRespuestaNueva(pesof, alturaf, imc_nominal, imc_numerico);
 
-				System.out.println(imcRespuestaNueva);
+				Gson gson  =new Gson();
+				String respuestaImcJson = gson.toJson(imcRespuestaNueva);
 				
-				response.getWriter().write(respuesta);
-			} 
-			
+				System.out.println(imcRespuestaNueva);
+				System.out.println(respuestaImcJson);
+				
+				//response.getWriter().write(respuesta);
+				response.getWriter().write(respuestaImcJson);
+			} 	
 			catch (Exception e) {
 				// TODO: handle exception
 				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);

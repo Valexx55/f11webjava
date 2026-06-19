@@ -146,6 +146,23 @@ CÓDIGOS DE ESTADOS STATUS
 		5XX	- Error en el servidor (Excepción)	
 
 
+SERIALIZAR
+
+	Convertimos una variable a texto para su transmisión o almacenamiento
+		
+JSON
+	
+	Formato de representación textual para estructurar la información
+	Es usado originalmente por el lenguaje JavaScript
+	Hoy en día es el formato estándar para intercambiar información entre clientes y servidores 
+
+GSON
+
+	Librería de Google de uso sencillo para serializar/deseralizar de Java a JSON y viceversa
+
+
+
+
 
 
 
