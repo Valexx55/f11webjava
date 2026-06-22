@@ -49,6 +49,22 @@ public class ContextoInicioYFin implements ServletContextListener {
 		ServletContext servletContext = sce.getServletContext();
 		int nveces = (int) servletContext.getAttribute("numero_veces");
 		System.out.println("El servlet CalculoIMC se ha llamado " + nveces +" veces");
+		ArrayList<ImcRespuestaNueva> listaIMC = (ArrayList<ImcRespuestaNueva>) servletContext.getAttribute("listaIMC");
+	//for tradicional
+		System.out.println("Con For tradicional");
+		for (int i = 0; i < listaIMC.size(); i++) {
+			ImcRespuestaNueva imc = listaIMC.get(i);
+			System.out.println(imc);
+			
+		}
+		
+		//for each
+		System.out.println("Con For each");
+		for (ImcRespuestaNueva imc:listaIMC)
+		{
+			System.out.println(imc);
+		}
+	
 	}
 
 }
