@@ -31,8 +31,9 @@ public class CalculoIMCJsp extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
-		
+		//redirección
+		//response.sendRedirect("error-imc.jsp");
+		 
 		// OBTENER PESO Y ALTURA
 		String peso = request.getParameter("peso");
 		String altura = request.getParameter("altura");
@@ -99,10 +100,12 @@ public class CalculoIMCJsp extends HttpServlet {
 			catch (Exception e) {
 				// TODO: handle exception
 				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-				request.setAttribute("mensajeError", "peso y altura deben ser números");
+				//request.setAttribute("mensajeError", "peso y altura deben ser números");
 
                 request.getRequestDispatcher("/error-imc.jsp")
                         .forward(request, response);
+                
+                
 				
 			}
 		} else {

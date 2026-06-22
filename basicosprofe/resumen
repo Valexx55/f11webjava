@@ -160,9 +160,15 @@ GSON
 
 	Librería de Google de uso sencillo para serializar/deseralizar de Java a JSON y viceversa
 
+REDIRECCIÓN
 
+	Desde el servidor, enviamos un código 300 acomàñado de una url
+	El navegador, al recibir esa respuesta, hace otra petición nueva a la url
+	Usos de la redirección: múltiples, redirección a páginas de error, 
+	cambios de dominio, fin de compras, etc.
 
-
+	Con servlets, se haría así:
+	response.sendRedirect("error-imc.jsp");
 
 
 

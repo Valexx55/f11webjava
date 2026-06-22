@@ -1,5 +1,6 @@
 package servlets;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -33,6 +34,16 @@ public class CalculoIMC extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		//actuailzar la cuenta del contexto de cuántas veces han llamado a CalculoIMC
+		ServletContext servletContext = getServletContext();
+		Object nveces = servletContext.getAttribute("numero_veces");
+		//CASTING: convierto de object a número, para poder sumar
+		int numveces = (int) nveces;
+		numveces = numveces+1;
+		System.out.println("Se ha invocado a CalculoIMC " + numveces + " veces");
+		servletContext.setAttribute("numero_veces", numveces);
+		
 		
 		
 		// OBTENER PESO Y ALTURA

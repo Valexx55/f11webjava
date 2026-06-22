@@ -11,8 +11,9 @@
 
     <h1>No se pudo calcular el IMC</h1>
 
+<!--  
     <p>${mensajeError}</p>
-
+-->
     <a href="index.html">
         Volver al formulario
     </a>
