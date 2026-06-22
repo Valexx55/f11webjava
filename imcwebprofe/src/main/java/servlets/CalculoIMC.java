@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
@@ -88,6 +89,12 @@ public class CalculoIMC extends HttpServlet {
 				response.setContentType("application/json");
 				ImcRespuestaNueva imcRespuestaNueva = new ImcRespuestaNueva(pesof, alturaf, imc_nominal, imc_numerico);
 
+				//Cada vez que se calcula un IMC de manera exitosa, lo guardo
+				//en el contexto. Y así, tengo una lista con todos los Imcs calculados
+				ArrayList<ImcRespuestaNueva> lista = (ArrayList<ImcRespuestaNueva>) servletContext.getAttribute("listaIMC");
+				lista.add(imcRespuestaNueva);
+				servletContext.setAttribute("listaIMC", lista);
+				
 				Gson gson  =new Gson();
 				String respuestaImcJson = gson.toJson(imcRespuestaNueva);
 				

@@ -1,10 +1,13 @@
 package listener;
 
 
+import java.util.ArrayList;
+
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
+import servlets.ImcRespuestaNueva;
 
 /**
  * Application Lifecycle Listener implementation class ContextoInicioYFin
@@ -32,6 +35,8 @@ public class ContextoInicioYFin implements ServletContextListener {
 		ServletContext servletContext = sce.getServletContext();
 		//con "numero_veces" quiero llevar la cuenta de cuántas veces llaman a CalculoIMC
 		servletContext.setAttribute("numero_veces", 0);
+		ArrayList<ImcRespuestaNueva> listaIMC = new ArrayList<>();
+		servletContext.setAttribute("listaIMC", listaIMC);
 		
 	}
 
@@ -39,8 +44,11 @@ public class ContextoInicioYFin implements ServletContextListener {
 	 * @see ServletContextListener#contextDestroyed(ServletContextEvent)
 	 */
 	public void contextDestroyed(ServletContextEvent sce) {
-		// TODO Auto-generated method stub
+		// TODO Haced un sysout con el número de veces que se ha invocado el CalculoIMC
 		System.out.println("APP FINALIZADA");
+		ServletContext servletContext = sce.getServletContext();
+		int nveces = (int) servletContext.getAttribute("numero_veces");
+		System.out.println("El servlet CalculoIMC se ha llamado " + nveces +" veces");
 	}
 
 }
