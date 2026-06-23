@@ -39,6 +39,7 @@ public class Dni {
 		char letraDevuelta = ' ';//1ª línea, un objeto/variable del tipo devuelto
 		int resto = 0;	
 			
+			System.out.println("Estoy en calcularLetra del DNI");
 			resto = this.numero % Dni.SECUENCIA_LETRAS_DNI.length();
 			letraDevuelta = Dni.SECUENCIA_LETRAS_DNI.charAt(resto);
 			
