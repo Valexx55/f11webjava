@@ -43,6 +43,9 @@ public class LetraDni extends HttpServlet {
 
 		return dniDev;
 	}
+	
+	
+	//http://localhost:8080/appwebprofe/LetraDni?numero=53130984&tipoDocumento=DNI
 
 	// https://www.google.com/search?q=mundial+2026
 	// https://www.google.com/search?q=mundial+2026&oq=MUNDIAL&gs_lcrp=EgRlZGdlKg0IARAAGIMBGLEDGIAEMgYIABBFGDkyDQgBEAAYgwEYsQMYgAQyEAgCEAAYgwEYsQMYgAQYigUyDQgDEAAYgwEYsQMYgAQyDQgEEAAYgwEYsQMYgAQyDQgFEAAYgwEYsQMYgAQyDQgGEAAYgwEYsQMYgAQyDQgHEAAYgwEYsQMYgAQyDQgIEAAYgwEYsQMYgAQyCAgJEOkHGPxV0gEIMzE1NWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8
@@ -64,11 +67,11 @@ public class LetraDni extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("Petición incorrecta");
+			response.getWriter().write("Petición incorrecta "+e.getMessage());
 		}
 
 	}
 
-	// http://localhost:8080/appwebprofe/LetraDni?numero=53130984
+	
 
 }

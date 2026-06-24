@@ -21,7 +21,7 @@ public class Nie extends Dni {
 		}
 
 		if (this.prefijo == 'X') {
-			System.out.println("Estoy en calcularLetra del DNI");
+			System.out.println("Estoy en calcularLetra del NIE");
 			resto = this.numero % Dni.SECUENCIA_LETRAS_DNI.length();
 			letraDevuelta = Dni.SECUENCIA_LETRAS_DNI.charAt(resto);
 		} else {
