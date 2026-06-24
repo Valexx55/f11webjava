@@ -28,17 +28,51 @@ public class LetraDni extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//LEER EL NÚMERO
-		String numeroDni = request.getParameter("numero");
-		//CALCULAR LA LETRA DE ESE NÚMERO
-		if (numeroDni!=null)
+		//LEER TIPO DE DOCUMENTO 
+		String tipoDocumento = request.getParameter("tipoDocumento");
+		
+		if (tipoDocumento.equals("DNI"))
 		{
+			//LEER EL NÚMERO
+			String numeroDni = request.getParameter("numero");
+			//CALCULAR LA LETRA DE ESE NÚMERO
+			if (numeroDni!=null)
+			{
+				try {
+					int numero = Integer.parseInt(numeroDni);
+					//creo el DNI
+					Dni dni = new Dni(numero);
+					//NOTA: el dni, ya se crea con su letra, que se calcula en el constrcutor
+					String mensaje_respuesta = "Su Dni con letra es "+dni.numero+"-"+dni.letra;
+					System.out.println(mensaje_respuesta);
+					//ESCRIBIR LA RESPUESTA
+					response.getWriter().write(mensaje_respuesta);
+				} catch (Exception e) {
+					//HA FALLADO LA CONVERSIÓN DEL NÚMERO
+					response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+					response.getWriter().write("El parámetro no es un número válido");
+				}
+				
+			} else {
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+				response.getWriter().write("Falta el parámetro número");
+			}
+		} else if (tipoDocumento.equals("NIE"))
+		{
+			String numeroNie = request.getParameter("numero");
+			String prefijoNie = request.getParameter("prefijo");
 			try {
-				int numero = Integer.parseInt(numeroDni);
+				int numero = Integer.parseInt(numeroNie);
 				//creo el DNI
-				Dni dni = new Dni(numero);
+				Nie nie = new Nie();
+				nie.numero = numero;
+				nie.prefijo = prefijoNie.charAt(0);
+				
+				char letraNie = nie.calcularLetra();
+				nie.letra = letraNie;
+				
 				//NOTA: el dni, ya se crea con su letra, que se calcula en el constrcutor
-				String mensaje_respuesta = "Su Dni con letra es "+dni.numero+"-"+dni.letra;
+				String mensaje_respuesta = "Su NIE con letra es "+ nie.prefijo+nie.numero+"-"+nie.letra;
 				System.out.println(mensaje_respuesta);
 				//ESCRIBIR LA RESPUESTA
 				response.getWriter().write(mensaje_respuesta);
@@ -47,11 +81,8 @@ public class LetraDni extends HttpServlet {
 				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 				response.getWriter().write("El parámetro no es un número válido");
 			}
-			
-		} else {
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("Falta el parámetro número");
 		}
+		
 		//http://localhost:8080/appwebprofe/LetraDni?numero=53130984
 		
 	}
