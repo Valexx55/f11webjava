@@ -29,7 +29,6 @@ public class Dni {
 	public Dni(int numero) {
 		super();
 		this.numero = numero;
-		this.letra = this.calcularLetra();
 	}
 
 	//TODO programr este métódo en Java, para que funcione bien y devuelva la letra correspondiente a cada de DNI
@@ -45,6 +44,12 @@ public class Dni {
 			
 		return letraDevuelta;//última línea, un return de la variable declarada en la línea 1
 	}
+
+	@Override
+	public String toString() {
+		return "Dni [numero=" + numero + ", letra=" + letra + "]";
+	}
+	
 	
 	
 	

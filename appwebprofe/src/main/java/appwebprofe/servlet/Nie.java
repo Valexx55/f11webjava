@@ -32,6 +32,14 @@ public class Nie extends Dni {
 
 		return letraDevuelta;// última línea, un return de la variable declarada en la línea 1
 	}
+
+	@Override
+	public String toString() {
+		return "Nie [prefijo=" + prefijo + ", numero=" + numero + ", letra=" + letra + "]";
+	}
+
+
+
 	
 	/*
 	public static void main(String[] args) {
