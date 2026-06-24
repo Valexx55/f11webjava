@@ -11,6 +11,28 @@ public class MainAlumnoPersona {
 		persona1.edad = 30;
 		persona1.sexo = 'M';
 		
+		Persona persona3 = new Persona();
+		persona3.nombre = "Freddy";
+		persona3.edad = 30;
+		persona3.sexo = 'M';
+		
+		//if (persona1==persona3)
+		if (persona1.equals(persona3))
+		{
+			System.out.println("Persona 1 es IGUAL a Persona 3");
+		} else {
+			System.out.println("Persona 1 es DISTINTA a Persona 3");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		Persona persona2 = new Alumno();
 		persona2.nombre = "Bonnie";
 		persona2.edad = 25;
@@ -29,6 +51,13 @@ public class MainAlumnoPersona {
 		List<Persona> listaPersonas = List.of (persona1, persona2);
 		int nalumnos = cuentaAlumnos(listaPersonas);
 		System.out.println("Num alumnos = "+nalumnos);
+		
+		
+		String stringPersona1 = persona1.toString();
+		String stringPersona2 = persona2.toString();
+		System.out.println("String persona 1 = " + stringPersona1);
+		System.out.println("String persona 2 = " + stringPersona2);
+		System.out.println("String persona 2 2 = " + persona2);
 	}
 	
 	
