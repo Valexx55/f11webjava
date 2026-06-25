@@ -51,12 +51,8 @@ public class Login extends HttpServlet {
 		} else {
 			System.out.println("El usuario No existe");
 			//TODO redirigir página de error
+			response.sendRedirect("error-login.html");
 		}
-		
-		
-	
-	
-	
 	
 	}
 
