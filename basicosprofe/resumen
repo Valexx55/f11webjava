@@ -171,10 +171,29 @@ REDIRECCIÓN
 	response.sendRedirect("error-imc.jsp");
 
 
+POLIMORFISMO
 
+	Característica de Java derivada de la herencia. Si una clase, hereda de otra,
+	hereda sus atributos y métodos. Si se invoca a un método de clase padre, Java decide
+	qué versión ejecutar.
+	
+	Ejemplos: toString y equals Métodos de Object, que puedo sobreescribir.
+	
+	Otro ejemplo: calcularLetra() de la clase Dni
+	
 
+CASTING 
 
+	Conversión de tipos. Cambiar un objeto de un tipo a otro, para poder operar con él.
+	Por ejemplo de Object a String
+	O de Persona a Alumno
 
+	Personas persona = new Alumno()
+	Alumno a = (Alumno) persona
+	
+	TipoDestino objetoDestino = (TipoDestino) objetoFuente;
+	
+	
 
 
 
