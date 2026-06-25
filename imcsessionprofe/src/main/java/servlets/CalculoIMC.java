@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import modelo.ImcRespuestaNueva;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class CalculoIMC extends HttpServlet {
 			throws ServletException, IOException {
 
 		// TIENE SESIÓN ESTA PETICIÓN??
-
+//http://localhost:8080/imcsessionprofe/
 		HttpSession sesionActual = request.getSession(false);
 
 		if (sesionActual != null) {
@@ -100,7 +101,8 @@ public class CalculoIMC extends HttpServlet {
 					response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 					response.getWriter().write("peso y altura deben ser números");
 				}
-			} else {
+			} else //sin parámetros de peso y altura 
+			{
 				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 				response.getWriter().write("Debe adjuntar los parámetro peso y altura");
 			}

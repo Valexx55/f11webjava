@@ -1,13 +1,16 @@
 package servlets;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import modelo.Usuario;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Servlet implementation class Login
@@ -26,8 +29,15 @@ public class Login extends HttpServlet {
     
     private boolean existeUsuario (String usuario, String password)
     {
-    	//TODO pendiente de validar de verdad
-    		return true;
+    		boolean existe = false;
+    			
+    			//leo el contexto, la lista y miro si este usuario está
+    			ServletContext servletContext = this.getServletContext();
+    			ArrayList<Usuario> listaUsuarios = (ArrayList<Usuario>) servletContext.getAttribute("listaUsuarios");
+    			Usuario usuarioRecibido = new Usuario(usuario, password);
+    			existe = listaUsuarios.contains(usuarioRecibido);
+    		
+    		return existe;
     }
 
 	/**
