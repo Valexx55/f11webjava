@@ -29,3 +29,10 @@ document.getElementById('imcForm').addEventListener('submit', function(event) {
             resultBox.textContent = error.message || "Error al conectar con el servidor.";
         });
 });
+
+
+fetch('ObtenerNombresSesion')
+.then(respuesta => respuesta.text())
+.then(nombres => {
+	document.getElementById("listaNombres").textContent = nombres;
+})

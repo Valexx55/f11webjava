@@ -55,6 +55,7 @@ public class Login extends HttpServlet {
 		//validar, ver si existe en mi lista de usuarios. De momento suponemos que sí
 		if (existeUsuario(usuario, password)) {
 			HttpSession sesion =  request.getSession();
+			sesion.setAttribute("nombre", usuario);
 			System.out.println("Sesión nueva creada " + sesion.getId() + " "+sesion);
 			//le envío a la página del imc
 			response.sendRedirect("imc.html");
