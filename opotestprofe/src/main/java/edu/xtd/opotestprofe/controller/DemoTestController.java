@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.xtd.opotestprofe.modelo.Test;
+
 //CONTROLLER ES LA CLASE QUE VE EL CLIENTE
 //MISIÓN: RECIBIR PETICIONES HTTP Y CONTESTARLAS
 //ES KARL! (EL DUEÑO DEL GATO CHOUPPETTE)
@@ -36,7 +38,12 @@ public class DemoTestController {
 		return respuesta;
 	}
 	
-	
+	@GetMapping("/testJson")
+	public Test obtenerTestJson ()
+	{
+		Test test = new Test(1, "La Consti", 10);
+		return test;
+	}
 	
 	
 	
