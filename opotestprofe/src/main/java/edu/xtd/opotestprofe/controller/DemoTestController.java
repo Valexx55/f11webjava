@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.xtd.opotestprofe.modelo.EntradaImc;
 import edu.xtd.opotestprofe.modelo.SalidaImc;
 import edu.xtd.opotestprofe.modelo.Test;
+import jakarta.validation.Valid;
 
 //CONTROLLER ES LA CLASE QUE VE EL CLIENTE
 //MISIÓN: RECIBIR PETICIONES HTTP Y CONTESTARLAS
@@ -63,7 +64,7 @@ public class DemoTestController {
 	 * E IMC NOMINAL
 	 */
 	@PostMapping("/calcular-imc")
-	public SalidaImc calcularIMC (@RequestBody EntradaImc entradaImc)
+	public SalidaImc calcularIMC (@Valid @RequestBody EntradaImc entradaImc)
 	{
 		SalidaImc salidaImc = null;
 		float imcnum = 0f;
@@ -92,6 +93,23 @@ public class DemoTestController {
 		return salidaImc;
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
