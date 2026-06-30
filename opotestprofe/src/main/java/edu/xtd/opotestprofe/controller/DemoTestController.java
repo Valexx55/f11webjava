@@ -1,4 +1,5 @@
 package edu.xtd.opotestprofe.controller;
+//package controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -80,7 +81,7 @@ public class DemoTestController {
 				imcNominal = "Delgado";
 			} else if (imcnum >= 18 && imcnum <25) {
 				imcNominal = "Ideal";
-			} else if (imcnum >= 25 && imcnum <21) {
+			} else if (imcnum >= 25 && imcnum <31) {
 				imcNominal = "Sobrepeso";
 			} else if (imcnum > 31) {
 				imcNominal = "Obeso";
