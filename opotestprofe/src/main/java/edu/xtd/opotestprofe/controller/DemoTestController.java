@@ -1,6 +1,8 @@
 package edu.xtd.opotestprofe.controller;
 //package controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +31,7 @@ public class DemoTestController {
 	@Autowired //Inyección de dependecias con la anotación set
 	DemoService demoService;
 	
+	Logger logger = LoggerFactory.getLogger(DemoTestController.class);
 	
 	//inyección de dependencias por el constructor
 	/*public DemoTestController (DemoService demoService)
@@ -43,6 +46,8 @@ public class DemoTestController {
 	@GetMapping("/saludo") //una petición GET /demo/saludo vendrá aquí
 	public String saludo () {
 		String saludo = "HOLA";
+		logger.debug("KA PACCHAOOO saludo ()");
+		logger.info("KA PACCHAOOO saludo () INFO");
 		return saludo;
 	}
 	
