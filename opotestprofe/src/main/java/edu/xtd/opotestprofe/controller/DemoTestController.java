@@ -45,9 +45,27 @@ public class DemoTestController {
 	//http://localhost:8080/demo/saludo
 	@GetMapping("/saludo") //una petición GET /demo/saludo vendrá aquí
 	public String saludo () {
-		String saludo = "HOLA";
-		logger.debug("KA PACCHAOOO saludo ()");
-		logger.info("KA PACCHAOOO saludo () INFO");
+		String saludo = null;
+		boolean huboerror = false;
+		try {
+			logger.debug("KA PACCHAOOO saludo ()");
+			logger.info("KA PACCHAOOO saludo () INFO");
+			//saludo.length();
+			saludo = "HOLA";
+			saludo.charAt(6);
+		}catch (Exception e) {
+			// TODO: handle exception
+			logger.error("Ha ocurrido una excepción en /saludo", e);
+			huboerror = true;
+			throw e;
+		}finally {
+			//esta sección, se ejecuta siempre, haya habido fallo o no
+			logger.debug("en el finally de /saludo");
+			if (huboerror) {
+				logger.debug("hubo error para llegar al finally");
+			}
+		}
+		
 		return saludo;
 	}
 	

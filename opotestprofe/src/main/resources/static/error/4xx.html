@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Página no encontrada</title>
+    <!-- Tailwind CSS CDN (para producción o desarrollo rápido) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white font-sans min-h-screen flex items-center justify-center p-6 selection:bg-amber-500 selection:text-black">
+
+    <main class="max-w-4xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
+        
+        <!-- Bloque de Texto e Interacción -->
+        <div class="flex-1 text-center md:text-left order-2 md:order-1">
+            <!-- Código de error con tu color dorado/amarillo corporativo -->
+            <h1 class="text-7xl md:text-8xl font-black text-amber-500 tracking-tight mb-2">
+                404
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide mb-4">
+                ¡Vaya! Código roto o página perdida
+            </h2>
+            <p class="text-gray-400 text-base md:text-lg mb-8 max-w-md leading-relaxed">
+                Parece que esta ruta ha lanzado un <span class="text-amber-500 font-mono">FALLO</span>. Nuestro desarrollador está intentando solucionarlo, pero mientras tanto es mejor volver a un entorno seguro.
+            </p>
+
+            <!-- Botón Volver a Inicio con el estilo de tu portfolio -->
+            <a href="/" class="group inline-flex items-center gap-2.5 px-6 py-3 bg-transparent text-white border-2 border-amber-500 hover:bg-amber-500 hover:text-black uppercase tracking-wider text-xs font-bold rounded transition-all duration-300 hover:shadow-[0_4px_15px_rgba(245,158,11,0.3)]">
+                <span>Volver al Inicio</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transform transition-transform duration-300 group-hover:translate-x-1">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div
+
+        <!-- Bloque de la Imagen (Desarrollador Frustrado) -->
+        <div class="flex-1 max-w-sm md:max-w-md w-full order-1 md:order-2 opacity-90 hover:opacity-100 transition-opacity duration-300">
+            <!-- Ilustración conceptual de unDraw sobre un desarrollador frustrado ante errores de código -->
+            <img 
+                src="https://http.cat/images/400.jpg" 
+                alt="Desarrollador web frustrado buscando el error 404" 
+                class="w-full h-auto object-contain"
+            
+        </div>
+
+    </main>
+
+</body>
+</html>
