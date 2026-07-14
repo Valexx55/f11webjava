@@ -4,6 +4,10 @@ package edu.xtd.opotestprofe.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -109,6 +113,28 @@ public class DemoTestController {
 			salidaImc = this.demoService.caluclarIMC(entradaImc);
 	
 		return salidaImc;
+		
+	}
+	
+	@PostMapping("/calcular-imc-re")
+	public ResponseEntity<SalidaImc> calcularIMCRE (@Valid @RequestBody EntradaImc entradaImc, BindingResult bindingResult)
+	{	ResponseEntity<SalidaImc> responseEntity = null;//REPRESENTA EL HTTP DE VUELTA CUERPO Y CABECERA
+		SalidaImc salidaImc = null;
+		
+			if (!bindingResult.hasErrors())
+			{
+				logger.debug("IMC sin errores");
+				salidaImc = this.demoService.caluclarIMC(entradaImc);
+				responseEntity = ResponseEntity.ok(salidaImc);
+				//responseEntity = ResponseEntity.status(HttpStatus.CREATED).body(salidaImc);
+			} else {
+				logger.error("IMC recibido con errores");
+				responseEntity = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(salidaImc);
+			}
+	
+			
+	
+		return responseEntity;
 		
 	}
 	
