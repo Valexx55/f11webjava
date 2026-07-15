@@ -15,5 +15,14 @@
 			<version>8.4.0</version>
 			<scope>compile</scope>
 		</dependency>
+		<!-- Source:
+		https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<!-- es un complmento de Spring a JDBC-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>7.0.8</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 </project>
