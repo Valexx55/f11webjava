@@ -1,6 +1,7 @@
 package basicosprofe.cliente;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainOrdenaClientes {
@@ -24,23 +25,26 @@ public class MainOrdenaClientes {
 		System.out.println(lClientes);
 		
 	
-		ComparadorClientes comparador = new ComparadorClientes();
-		//lClientes.sort(comparador);
+		ComparadorClientesEdad comparador = new ComparadorClientesEdad();
+		lClientes.sort(comparador);
 		//Función Lambda, Función flecha, función anónima
 		//lClientes.sort((c1, c2) -> c1.edad()-c2.edad());
 		//function reference
-		lClientes.sort(comparador::compare);
-		lClientes.sort(MainOrdenaClientes::comparadorMain);
-		System.out.println("LISTA CLIENTES ORDENADA POR EDAD");
+		/*lClientes.sort(comparador::compare);
+		Collections.shuffle(lClientes);
+		Collections.sort(lClientes);
+		lClientes.sort(MainOrdenaClientes::comparadorMain);*/
+		System.out.println("LISTA CLIENTES ORDENADA POR EDAD -orden TOTAL-");
 		System.out.println(lClientes);
 		
-		lClientes.sort((Cliente c1, Cliente c2) -> {
+		/*lClientes.sort((Cliente c1, Cliente c2) -> {
 			String nombre1 = c1.nombre();
 			String nombre2 = c2.nombre();
 			
 			return nombre1.compareTo(nombre2);
-		});
-		System.out.println("LISTA CLIENTES ORDENADA POR NOMBRE");
+		});*/
+		Collections.sort(lClientes);
+		System.out.println("LISTA CLIENTES ORDENADA POR NOMBRE -orden NATURAL-");
 		System.out.println(lClientes);
 		
 		System.out.println("LISTA CLIENTES for each");
