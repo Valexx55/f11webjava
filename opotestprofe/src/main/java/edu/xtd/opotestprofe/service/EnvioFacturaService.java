@@ -10,4 +10,9 @@ package edu.xtd.opotestprofe.service;
 public interface EnvioFacturaService {
 	
 	void enviarFactura(int idFactura);
+	
+	static void saludo (String nombre) 
+	{
+		System.out.println("HOLA " + nombre);
+	}
 }
