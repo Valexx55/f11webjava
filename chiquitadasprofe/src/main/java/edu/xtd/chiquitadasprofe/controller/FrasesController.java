@@ -1,6 +1,7 @@
 package edu.xtd.chiquitadasprofe.controller;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,6 +121,27 @@ public class FrasesController {
 					.toList();
 			
 			respuesta = ResponseEntity.ok(listaFrasesFiltradas);
+		
+			// 3. Devolvemos la respuesta con código 200 OK y la lista completa
+		return respuesta;
+	}
+	
+	
+	@GetMapping("/mas-larga") // GET http://localhost:8080/chiquitadas/todas
+	public ResponseEntity<FraseChiquito> obtenerLaFraseMasLarga() {
+		ResponseEntity<FraseChiquito> respuesta = null;
+		// 1. Llamamos al nuevo método de nuestro servicio
+		List<FraseChiquito> listaFrases = null;
+		FraseChiquito fraseChiquito = null;
+
+			listaFrases = this.frasesService.obtenerTodasLasFrases();
+	
+			Optional<FraseChiquito> ofc = listaFrases.stream().max((f1, f2) -> f1.frase().length() - f2.frase().length());
+			
+			fraseChiquito = ofc.isPresent() ? ofc.get() : null;
+			
+			
+			respuesta = ResponseEntity.ok(fraseChiquito);
 		
 			// 3. Devolvemos la respuesta con código 200 OK y la lista completa
 		return respuesta;
