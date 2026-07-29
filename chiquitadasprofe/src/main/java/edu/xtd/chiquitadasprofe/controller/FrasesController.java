@@ -1,6 +1,7 @@
 package edu.xtd.chiquitadasprofe.controller;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -63,7 +64,7 @@ public class FrasesController {
 		 * FraseChiquito(f.frase(), f.id() + 1)) .toList();
 		 */
 
-		frasesconidIncrementado = listaFrases
+		/*frasesconidIncrementado = listaFrases
 				.stream()
 				.map((FraseChiquito f) -> {
 						FraseChiquito fraseTransformada = null;
@@ -72,17 +73,17 @@ public class FrasesController {
 
 				return fraseTransformada;
 				})
-				.toList();
+				.toList();*/
 		
 		/*frasesconidIncrementado = listaFrases
 				.stream()
 				.map(f -> new FraseChiquito(f.frase(), f.id()+1))
-				.toList();
+				.toList();*/
 		
 		frasesconidIncrementado = listaFrases
 				.stream()
 				.map(this::transformarFraseChiquito)
-				.toList();*/
+				.toList();
 
 		// 2. Opcional: Imprimir por consola para depurar (como hiciste en el otro //
 		// método)
@@ -93,11 +94,43 @@ public class FrasesController {
 		return respuesta;
 	}
 	
+	
+	
+	@GetMapping("/frases-mas-de-10") // GET http://localhost:8080/chiquitadas/frases-mas-de-10
+	public ResponseEntity<List<FraseChiquito>> obtenerFrasesDeMasDe10() {
+		ResponseEntity<List<FraseChiquito>> respuesta = null;
+		// 1. Llamamos al nuevo método de nuestro servicio
+		List<FraseChiquito> listaFrases = null;
+		List<FraseChiquito> listaFrasesFiltradas = null;
+
+			listaFrases = this.frasesService.obtenerTodasLasFrases();
+	
+			Predicate<FraseChiquito> predicado = f -> f.frase().length() >=10;
+			//Predicate<FraseChiquito> predicadoMasDe5Palabras = f -> f.frase().split(" ").length>5;
+			/*listaFrasesFiltradas = 
+					listaFrases
+					.stream()
+					.filter(f -> f.frase().length() >=10)
+					.toList();*/
+			
+			listaFrasesFiltradas = 
+					listaFrases
+					.stream()
+					.filter(predicado)
+					.toList();
+			
+			respuesta = ResponseEntity.ok(listaFrasesFiltradas);
+		
+			// 3. Devolvemos la respuesta con código 200 OK y la lista completa
+		return respuesta;
+	}
+	
+	
 	private FraseChiquito transformarFraseChiquito (FraseChiquito fraseEntrada)
 	{
 		FraseChiquito fraseSalida = null;
 		
-			fraseEntrada = new FraseChiquito(fraseEntrada.frase(), fraseEntrada.id()+1);
+			fraseSalida = new FraseChiquito(fraseEntrada.frase(), fraseEntrada.id()+1);
 		
 		return fraseSalida;
 	}
