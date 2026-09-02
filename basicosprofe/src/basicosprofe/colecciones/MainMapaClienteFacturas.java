@@ -64,6 +64,21 @@ public class MainMapaClienteFacturas {
 		mapaCliFactura.put(cliente3, facturasCli3);
 
 		mostrarMapaClientesFacturas(mapaCliFactura);
+		
+		int numclientes = contarClientes(mapaCliFactura);
+		System.out.println("HAY " +  numclientes + " Clientes");
+		
+		int total = totalFacturacion(mapaCliFactura);
+		System.out.println("TOTAL FACTURAS " +  total + " euros ");
+		
+		int total2 = totalFacturacion2(mapaCliFactura);
+		System.out.println("TOTAL FACTURAS " +  total2 + " euros ");
+		
+		int totalImporteCliente = totalFacturacionCliente(mapaCliFactura, cliente1);
+		System.out.println("TOTAL IMPORTE CLIENTE 1 " +  totalImporteCliente + " euros ");
+		
+		int totalImporteCliente2 = totalFacturacionCliente2(mapaCliFactura, cliente1);
+		System.out.println("TOTAL IMPORTE CLIENTE 1 " +  totalImporteCliente2 + " euros ");
 	}
 
 	public static void mostrarMapaClientesFacturas(Map<Cliente, List<Factura>> mapaCliFactura) {
@@ -81,5 +96,96 @@ public class MainMapaClienteFacturas {
 			System.out.println("***********************");
 		}
 	}
+	
+	
+	public static int contarClientes (Map<Cliente, List<Factura>> mapaCliFactura)
+	{
+		int numClientes = 0;
+		
+			numClientes = mapaCliFactura.keySet().size();
+		
+		return numClientes;
+	}
+	
+	public static int totalFacturacion (Map<Cliente, List<Factura>> mapaCliFactura)
+	{
+		int total = 0;
+		
+			Set<Cliente> setClientes = mapaCliFactura.keySet();
+			for (Cliente c : setClientes) {
+				List<Factura> listaFacturas = mapaCliFactura.get(c);
+				for (Factura f : listaFacturas) {
+					total = total + f.total();
+				}
+			}
+		
+		return total;
+	}
+	
+	public static int totalFacturacionCliente (Map<Cliente, List<Factura>> mapaCliFactura, Cliente c)
+	{
+		int total = 0;
+		
+			List<Factura> lfacturas = mapaCliFactura.get(c);
+			for (Factura f: lfacturas)
+			{
+				total = total + f.total();
+			}
+			
+			
+		return total;
+	}
+	
+	public static int totalFacturacionCliente2 (Map<Cliente, List<Factura>> mapaCliFactura, Cliente c)
+	{
+		int total = 0;
+		
+			List<Factura> lfacturas = mapaCliFactura.get(c);
+			total = lfacturas.stream().mapToInt(f-> f.total()).sum();
+			
+			
+		return total;
+	}
+	
+	public static int totalFacturacion2 (Map<Cliente, List<Factura>> mapaCliFactura)
+	{
+		int total = 0;
+		
+			total = mapaCliFactura.entrySet().stream().
+					flatMap(entrada -> entrada.getValue().stream())
+					.mapToInt(factura -> factura.total()).sum();
+		
+		return total;
+	}
+	//TODO
+	/*
+	 * 1. HACED UN MÉTODO QUE RECIBA EL MAPA DE CLIENTE-FACTURAS Y DIGA CUÁNTOS CLIENTES HAY
+	 * 
+	 * 2. HACED UN MÉTODO QUE RECIBA EL MAPA DE CLIENTE-FACTURAS Y DIGA EL TOTAL DE FACTURACIÓN 
+	 * DE TODOS LOS CLIENTES
+	 * 
+	 * 3. HACED UN MÉTODO QUE RECIBA EL MAPA DE CLIENTE-FACTURAS Y UN CLIENTE Y DIGA CUÁNTO SUMAN 
+	 * LAS FACTURAS DE ESE CLIENTE
+	 * 
+	 * 
+	 * 
+	 */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
