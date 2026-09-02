@@ -160,15 +160,81 @@ HERENCIA
 
 	extends
 
+PARÁMETROS DE UNA URL
+
+	Las variables de la URL, que van después del ? y si son varios, unidos por &
+	Formato es clave=valor por ejemplo numero=45
+	
+CÓDIGOS DE ESTADOS STATUS
+
+	Códigos numéricos generados por el servidor que indican CÓMO ha ido la comunicación
+	VAN DEL 100 al 500
+	del 1xx al 5xx siendo los más importantes los que empizan por 2, 4 5
+	
+		2XX - La comunicación ha ido bien
+		
+				200 OK
+				201 Created
+				204 No content
+				
+		4XX - Error en el cliente (el que envía la petición HTTP)
+		
+				400 BAD Request
+				404 Not Found
+				401 Unauthorized
+				403 Forbidden
+				
+		5XX	- Error en el servidor (Excepción)	
 
 
+SERIALIZAR
+
+	Convertimos una variable a texto para su transmisión o almacenamiento
+		
+JSON
+	
+	Formato de representación textual para estructurar la información
+	Es usado originalmente por el lenguaje JavaScript
+	Hoy en día es el formato estándar para intercambiar información entre clientes y servidores 
+
+GSON
+
+	Librería de Google de uso sencillo para serializar/deseralizar de Java a JSON y viceversa
+
+REDIRECCIÓN
+
+	Desde el servidor, enviamos un código 300 acomàñado de una url
+	El navegador, al recibir esa respuesta, hace otra petición nueva a la url
+	Usos de la redirección: múltiples, redirección a páginas de error, 
+	cambios de dominio, fin de compras, etc.
+
+	Con servlets, se haría así:
+	response.sendRedirect("error-imc.jsp");
 
 
+POLIMORFISMO
 
+	Característica de Java derivada de la herencia. Si una clase, hereda de otra,
+	hereda sus atributos y métodos. Si se invoca a un método de clase padre, Java decide
+	qué versión ejecutar.
+	
+	Ejemplos: toString y equals Métodos de Object, que puedo sobreescribir.
+	
+	Otro ejemplo: calcularLetra() de la clase Dni
+	
 
+CASTING 
 
+	Conversión de tipos. Cambiar un objeto de un tipo a otro, para poder operar con él.
+	Por ejemplo de Object a String
+	O de Persona a Alumno
 
-
+	Personas persona = new Alumno()
+	Alumno a = (Alumno) persona
+	
+	TipoDestino objetoDestino = (TipoDestino) objetoFuente;
+	
+	
 
 
 
