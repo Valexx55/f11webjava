@@ -118,6 +118,47 @@ MAVEN
 		- Un progrma cliente (embebido en STS) que permite la comunicación
 		  con un repositorio Maven		
 		
+CONTEXTO
+
+	El Contexto en JEE, es un espacio  que el servidor crea, reserva y asociada
+	a cada aplicación desplegada en él. Puedo definir una clase que escuche
+	el inicio de la aplicación y la creación de ese contexto, así cómo su finalización.
+	
+	En ese objeto, puedo guardar información desde cualquier servlet, de modo que se puede
+	compartir información valiosa y acceder a ella en cualquier momento desde cualquier
+	parte de la app
+	
+CASTING
+
+	Proceso que transforma un tipo de objeto a otro. Pasamos de una clase a otra.
+	
+	Podemos hacer superCasting o infraCasting
+	
+	Si pasamos de Object a String sería un InfraCasting
+	
+	Si pasamos de Intenger a Number estaríamos haciendo un supercasting
+	
+	String cadena = (String) object;
+	
+COLECCIONES
+
+
+	Listas - ArrayList get, add
+	Conjuntos - SET no se repiten
+	Mapas - Almaena información el formato Clave-Valor, de manera relacionada
+	
+	
+EXCEPCIONES 
+	 
+	
+	Cuando ocurre una situación que altera el flujo de ejecución de un programa
+	
+	Throwable, Exception, Error
+	Exception, RunTimeException. Checked
+	
+HERENCIA 
+
+	extends
 
 
 
