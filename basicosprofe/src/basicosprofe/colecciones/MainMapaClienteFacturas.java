@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class MainMapaClienteFacturas {
 
@@ -45,7 +46,10 @@ public class MainMapaClienteFacturas {
 				"Pagada por transferencia", 300, 63, 363, LocalDateTime.of(2026, 4, 20, 13, 20),
 				LocalDateTime.of(2026, 4, 25, 9, 30));
 
-		Map<Cliente, List<Factura>> mapaCliFactura = new HashMap<>();
+		//Map<Cliente, List<Factura>> mapaCliFactura = new HashMap<>();
+		//con TreeMap, tendremos un orden y el mapa queda ordenado por la K clave
+		//queda ordenado por Cliente
+		Map<Cliente, List<Factura>> mapaCliFactura = new TreeMap<>();
 
 		List<Factura> facturasCli1 = new ArrayList<>();
 		facturasCli1.add(factura1);
